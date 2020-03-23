@@ -19,7 +19,15 @@ const routes: Routes = [
       {
         path: 'main',
         component: MainComponent
-      }
+      },
+      {
+        path: 'hero/:id',
+        component: HeroFormComponent
+      },
+      {
+        path: 'hero',
+        component: HeroFormComponent
+      },
     ]
   },
   {
@@ -32,4 +40,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

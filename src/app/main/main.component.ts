@@ -9,9 +9,23 @@ import { DataService } from '../data.service';
 })
 export class MainComponent implements OnInit {
   heroes: Hero[];
+  error:boolean;
   displayedColumns: string[] = ['heroName', 'realName', 'skill', 'universe'];
 
-  constructor() {}
+  constructor(
+    private ds: DataService,
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.ds.getHeroes().subscribe(
+      response => {
+        this.heroes = response as Hero[];
+      },
+      err => {
+        console.log(err);
+        this.error = true;
+      }
+    );
+  }
+
 }

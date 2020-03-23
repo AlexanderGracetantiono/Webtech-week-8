@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { DataService } from '../data.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-hero-form',
   templateUrl: './hero-form.component.html',
@@ -21,10 +21,16 @@ export class HeroFormComponent implements OnInit {
   update = true;
 
   constructor(
+    private _snackBar: MatSnackBar,
     private ds: DataService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -50,6 +56,7 @@ export class HeroFormComponent implements OnInit {
   postHero() {
     this.ds.postHero(this.hero).subscribe(response => {
       // tampilkan notifikasi
+      this.openSnackBar("Hero Added", null)
       this.router.navigate(['/main']);
     });
   }
@@ -58,6 +65,7 @@ export class HeroFormComponent implements OnInit {
     this.ds.deleteHero(this.hero).subscribe(
       response => {
         // tampilkan notifikasi
+        this.openSnackBar("Hero Deleted", null)
         this.router.navigate(['/main']);
       },
       err => {
@@ -70,6 +78,7 @@ export class HeroFormComponent implements OnInit {
     this.ds.updateHero(this.hero).subscribe(
       response => {
         // tampilkan notifikasi
+        this.openSnackBar("Hero Updated", null)
         this.router.navigate(['/main']);
       },
       err => {
