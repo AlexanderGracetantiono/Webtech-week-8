@@ -4,6 +4,7 @@ import { MainComponent } from './main/main.component';
 import { ShellComponent } from './shell/shell.component';
 import { MatakuliahFormComponent } from './matkul-form/matkul-form.component';
 import { DosenFormComponent } from './dosen-form/dosen-form.component';
+import { DosenListComponent } from './dosen-list/dosen-list.component';
 import { Page404Component } from './page404/page404.component';
 
 const routes: Routes = [
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: 'dosen',
         component: DosenFormComponent
+      },
+      {
+        path: 'dosenList',
+        component: DosenListComponent
       },
     ]
   },

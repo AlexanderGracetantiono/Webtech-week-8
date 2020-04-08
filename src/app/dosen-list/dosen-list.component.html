@@ -1,0 +1,35 @@
+<div class="button-holder">
+  <button mat-raised-button color="primary" routerLink="/dosen">
+    Tambahkan Dosen
+  </button>
+</div>
+<div class="table">
+  <table mat-table [dataSource]="dosen" class="mat-elevation-z8">
+    <ng-container matColumnDef="nama">
+      <th mat-header-cell *matHeaderCellDef>Nama Dosen</th>
+      <td mat-cell *matCellDef="let dosen">{{ dosen.nama }}</td>
+    </ng-container>
+    <ng-container matColumnDef="lulusan1">
+      <th mat-header-cell *matHeaderCellDef>Lulusan 1</th>
+      <td mat-cell *matCellDef="let dosen">{{ dosen.lulusan1 }}</td>
+    </ng-container>
+    <ng-container matColumnDef="lulusan2">
+      <th mat-header-cell *matHeaderCellDef>Lulusan 2</th>
+      <td mat-cell *matCellDef="let dosen">{{ dosen.lulusan2 }}</td>
+    </ng-container>
+    <ng-container matColumnDef="lulusan3">
+      <th mat-header-cell *matHeaderCellDef>Lulusan 3</th>
+      <td mat-cell *matCellDef="let dosen">{{ dosen.lulusan3 }}</td>
+    </ng-container>
+    <ng-container matColumnDef="jumlahSKSAjar">
+      <th mat-header-cell *matHeaderCellDef>Semester</th>
+      <td mat-cell *matCellDef="let dosen">{{ dosen.jumlahSKSAjar }}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      [routerLink]="'/dosen/' + row._id"
+    ></tr>
+  </table>
+</div>

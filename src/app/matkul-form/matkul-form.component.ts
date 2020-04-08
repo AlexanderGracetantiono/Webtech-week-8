@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Matakuliah } from '../matakuliah';
+import { Dosen } from '../dosen';
 import { DataService } from '../data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -18,6 +19,8 @@ export class MatakuliahFormComponent implements OnInit {
     semester:0,
     tahunAkademik:''
   };
+  dosen:Dosen[];
+  dosenList:Array<Dosen>
   id = null;
   error = false;
   update = true;
@@ -35,8 +38,16 @@ export class MatakuliahFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.ds.getAllDosen().subscribe(
+      response => {
+        this.dosen = response as Dosen[];
+      },
+      err => {
+        console.log(err);
+        this.error = true;
+      }
+    );
     this.route.paramMap.subscribe(params => {
-      // jika ada parameter id di URL
       if (params.get('id')) {
         this.id = params.get('id');
 

@@ -40,6 +40,9 @@ export class DataService {
     return this.http.post(`${this.baseUrl}/dosen`, dosen);
   }
   
+  getAllDosen() {
+    return this.http.get(`${this.baseUrl}/dosen`);
+  }
   getDosen(id: number) {
     // /<resource>/<id>
     return this.http.get(`${this.baseUrl}/dosen/${id}`);

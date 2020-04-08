@@ -55,9 +55,11 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Dosen Pengajar</mat-label>
-    <mat-select matNativeControl name="dosen" id="dosen" [(ngModel)]="matkul.dosen">
-      <mat-option value="Andreas Agustino S.Kom">Andreas Agustino S.Kom
-      </mat-option>
+    <mat-select  matNativeControl name="dosen" id="dosen" [(ngModel)]="matkul.dosen">
+      <!-- <mat-option  
+      *ngFor="let dosen of dosenList"
+       value="{{ dosen.nama }}">{{ dosen.nama}}
+      </mat-option> -->
       <mat-option value="Andy Irawan S.Kom">Andy Irawan S.Kom
       </mat-option>
       <mat-option value="Djoko Susanto S.Kom">Djoko Susanto S.Kom

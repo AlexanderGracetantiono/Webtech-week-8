@@ -59,7 +59,7 @@ export class DosenFormComponent implements OnInit {
     this.ds.createDosen(this.dosen).subscribe(response => {
       // tampilkan notifikasi
       this.openSnackBar("Dosen Added", null)
-      this.router.navigate(['/main']);
+      this.router.navigate(['/dosenList']);
     });
   }
 
@@ -68,7 +68,7 @@ export class DosenFormComponent implements OnInit {
       response => {
         // tampilkan notifikasi
         this.openSnackBar("Dosen Deleted", null)
-        this.router.navigate(['/main']);
+        this.router.navigate(['/dosenList']);
       },
       err => {
         console.log(err);
@@ -81,7 +81,7 @@ export class DosenFormComponent implements OnInit {
       response => {
         // tampilkan notifikasi
         this.openSnackBar("Dosen Updated", null)
-        this.router.navigate(['/main']);
+        this.router.navigate(['/dosenList']);
       },
       err => {
         console.log(err);

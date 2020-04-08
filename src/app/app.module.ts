@@ -2,12 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { HomeComponent } from './home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ShellComponent } from './shell/shell.component';
 import { MainComponent } from './main/main.component';
 import { MatakuliahFormComponent } from './matkul-form/matkul-form.component';
+import { DosenFormComponent } from './dosen-form/dosen-form.component';
+import { DosenListComponent } from './dosen-list/dosen-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Page404Component } from './page404/page404.component';
@@ -49,13 +51,15 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 @NgModule({
   declarations: [
-    AppComponent,
+    HomeComponent,
     HeaderComponent,
     FooterComponent,
     ShellComponent,
     MainComponent,
     MatakuliahFormComponent,
-    Page404Component
+    DosenFormComponent,
+    Page404Component,
+    DosenListComponent
   ],
   imports: [
     BrowserModule,
@@ -99,6 +103,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatTooltipModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [HomeComponent]
 })
 export class AppModule {}
