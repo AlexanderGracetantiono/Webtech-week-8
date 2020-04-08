@@ -7,7 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ShellComponent } from './shell/shell.component';
 import { MainComponent } from './main/main.component';
-import { HeroFormComponent } from './hero-form/hero-form.component';
+import { MatakuliahFormComponent } from './matkul-form/matkul-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Page404Component } from './page404/page404.component';
@@ -54,7 +54,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     FooterComponent,
     ShellComponent,
     MainComponent,
-    HeroFormComponent,
+    MatakuliahFormComponent,
     Page404Component
   ],
   imports: [

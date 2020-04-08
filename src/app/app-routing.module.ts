@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { ShellComponent } from './shell/shell.component';
-import { HeroFormComponent } from './hero-form/hero-form.component';
+import { MatakuliahFormComponent } from './matkul-form/matkul-form.component';
+import { DosenFormComponent } from './dosen-form/dosen-form.component';
 import { Page404Component } from './page404/page404.component';
 
 const routes: Routes = [
@@ -21,12 +22,20 @@ const routes: Routes = [
         component: MainComponent
       },
       {
-        path: 'hero/:id',
-        component: HeroFormComponent
+        path: 'matkul/:id',
+        component: MatakuliahFormComponent
       },
       {
-        path: 'hero',
-        component: HeroFormComponent
+        path: 'matkul',
+        component: MatakuliahFormComponent
+      },
+      {
+        path: 'dosen/:id',
+        component: DosenFormComponent
+      },
+      {
+        path: 'dosen',
+        component: DosenFormComponent
       },
     ]
   },

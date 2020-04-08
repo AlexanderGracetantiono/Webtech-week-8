@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Hero } from '../hero';
+import { Matakuliah } from '../matakuliah';
 import { DataService } from '../data.service';
 
 @Component({
@@ -8,18 +8,18 @@ import { DataService } from '../data.service';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  heroes: Hero[];
+  matkul: Matakuliah[];
   error:boolean;
-  displayedColumns: string[] = ['heroName', 'realName', 'skill', 'universe'];
+  displayedColumns: string[] = ['nama', 'ruang', 'dosen', 'jumlahSks','semester','tahunAkademik'];
 
   constructor(
     private ds: DataService,
   ) {}
 
   ngOnInit(): void {
-    this.ds.getHeroes().subscribe(
+    this.ds.getAllMatkul().subscribe(
       response => {
-        this.heroes = response as Hero[];
+        this.matkul = response as Matakuliah[];
       },
       err => {
         console.log(err);

@@ -1,20 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../hero';
+import { Matakuliah } from '../matakuliah';
 import { DataService } from '../data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
-  selector: 'app-hero-form',
-  templateUrl: './hero-form.component.html',
-  styleUrls: ['./hero-form.component.scss']
+  selector: 'app-matkul-form',
+  templateUrl: './matkul-form.component.html',
+  styleUrls: ['./matkul-form.component.scss']
 })
-export class HeroFormComponent implements OnInit {
-  hero: Hero = {
+export class MatakuliahFormComponent implements OnInit {
+  matkul: Matakuliah = {
     _id: '',
-    heroName: '',
-    realName: '',
-    universe: 'MCU',
-    skill: ''
+    nama: '',
+    ruang: '',
+    dosen: '',
+    jumlahSks: 0,
+    semester:0,
+    tahunAkademik:''
   };
   id = null;
   error = false;
@@ -38,9 +40,9 @@ export class HeroFormComponent implements OnInit {
       if (params.get('id')) {
         this.id = params.get('id');
 
-        this.ds.getHero(this.id).subscribe(
+        this.ds.getMatkul(this.id).subscribe(
           response => {
-            this.hero = response as Hero;
+            this.matkul = response as Matakuliah;
           },
           err => {
             console.log(err);
@@ -53,19 +55,19 @@ export class HeroFormComponent implements OnInit {
     });
   }
 
-  postHero() {
-    this.ds.postHero(this.hero).subscribe(response => {
+  postMatkul() {
+    this.ds.postMatkul(this.matkul).subscribe(response => {
       // tampilkan notifikasi
-      this.openSnackBar("Hero Added", null)
+      this.openSnackBar("Mata Kuliah Added", null)
       this.router.navigate(['/main']);
     });
   }
 
-  deleteHero() {
-    this.ds.deleteHero(this.hero).subscribe(
+  deleteMatkul() {
+    this.ds.deleteMatkul(this.matkul).subscribe(
       response => {
         // tampilkan notifikasi
-        this.openSnackBar("Hero Deleted", null)
+        this.openSnackBar("Mata Kuliah Deleted", null)
         this.router.navigate(['/main']);
       },
       err => {
@@ -74,11 +76,11 @@ export class HeroFormComponent implements OnInit {
     );
   }
 
-  updateHero() {
-    this.ds.updateHero(this.hero).subscribe(
+  updateMatkul() {
+    this.ds.updateMatkul(this.matkul).subscribe(
       response => {
         // tampilkan notifikasi
-        this.openSnackBar("Hero Updated", null)
+        this.openSnackBar("Mata Kuliah Updated", null)
         this.router.navigate(['/main']);
       },
       err => {

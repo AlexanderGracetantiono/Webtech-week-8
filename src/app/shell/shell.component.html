@@ -1,7 +1,39 @@
-<div class="wrapper">
-  <app-header class="page-header"></app-header>
+<mat-toolbar class="header">
+  <button type="button" mat-button (click)="drawer.toggle()">
+    <mat-icon style="color: aliceblue;">menu</mat-icon>
+  </button>
+  <img src="../../assets/img/title_logo.png" class="image-header" alt="Photo of a company">
+  <span routerLink="/main">Rhodes Island Academy</span>
+</mat-toolbar>
+
+
+<mat-drawer-container class="example-container" >
+
   <div class="page-body">
     <router-outlet></router-outlet>
   </div>
-  <app-footer class="page-footer"></app-footer>
-</div>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <mat-nav-list>
+      <mat-list-item >
+        <span [routerLink]="['/main']" >
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+        </span>
+      </mat-list-item>
+      <mat-list-item >
+        <span [routerLink]="['/matkul']" >
+          <mat-icon>home</mat-icon>
+          <span>Create Matkul</span>
+        </span>
+      </mat-list-item>
+      <!-- <mat-list-item >
+        <span [routerLink]="['/dosen']" >
+          <mat-icon>people</mat-icon>
+          <span>Add Dosen</span>
+        </span>
+      </mat-list-item> -->
+    </mat-nav-list>
+  </mat-drawer>
+
+</mat-drawer-container>
+<app-footer class="page-footer"></app-footer>

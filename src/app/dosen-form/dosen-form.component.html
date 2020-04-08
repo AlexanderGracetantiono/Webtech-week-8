@@ -1,0 +1,61 @@
+<div *ngIf="error">Dosen dengan ID {{ this.id }} tidak tersedia</div>
+
+<form>
+  <h1>Form Dosen</h1>
+  <mat-form-field appearance="outline">
+    <mat-label>Nama Dosen</mat-label>
+    <input matInput placeholder="tulis nama dosen" name="nama" id="nama" [(ngModel)]="dosen.nama" />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-label>Lulusan 1</mat-label>
+    <mat-select matNativeControl name="lulusan1" id="lulusan1" [(ngModel)]="dosen.lulusan1">
+      <mat-option value="Sarjana Komputer">Sarjana Komputer
+      </mat-option>
+      <mat-option value="Sarjana Managemen">Sarjana Managemen
+      </mat-option>
+      <mat-option value="Sarjana Akuntansi">Sarjana Akuntansi
+      </mat-option>
+      <mat-option value="Tidak Ada">Tidak Ada
+      </mat-option>
+
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Lulusan 2</mat-label>
+    <mat-select matNativeControl name="lulusan2" id="lulusan2" [(ngModel)]="dosen.lulusan2">
+      <mat-option value="Magister Sains">Magister Sains
+      </mat-option>
+      <mat-option value="Sarjana Akuntansi">Sarjana Akuntansi
+      </mat-option>
+      <mat-option value="Magister Akuntansi">Magister Akuntansi
+      </mat-option>
+      <mat-option value="Tidak Ada">Tidak Ada
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Lulusan 3</mat-label>
+    <mat-select matNativeControl name="lulusan3" id="lulusan3" [(ngModel)]="dosen.lulusan3">
+      <mat-option value="Doktor">Doktor
+      </mat-option>
+      <mat-option value="Tidak Ada">Tidak Ada
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="buttons">
+    <div *ngIf="update">
+      <button mat-raised-button color="warn" (click)="deleteDosen()">
+        delete
+      </button>
+      <button mat-raised-button color="primary" (click)="updateDosen()">
+        update
+      </button>
+    </div>
+    <div *ngIf="!update">
+      <button mat-raised-button (click)="createDosen()" color="primary">
+        Simpan
+      </button>
+    </div>
+  </div>
+</form>

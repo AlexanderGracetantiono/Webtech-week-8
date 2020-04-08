@@ -1,31 +1,39 @@
 <div class="button-holder">
-  <button mat-raised-button color="primary" routerLink="/hero">
-    Add a Hero
+  <button mat-raised-button color="primary" routerLink="/matkul">
+    Tambahkan Matkul
   </button>
 </div>
 <div class="table">
-  <table mat-table [dataSource]="heroes" class="mat-elevation-z8">
-    <ng-container matColumnDef="heroName">
-      <th mat-header-cell *matHeaderCellDef>Hero Name</th>
-      <td mat-cell *matCellDef="let hero">{{ hero.heroName }}</td>
+  <table mat-table [dataSource]="matkul" class="mat-elevation-z8">
+    <ng-container matColumnDef="nama">
+      <th mat-header-cell *matHeaderCellDef>Nama Matkul</th>
+      <td mat-cell *matCellDef="let matkul">{{ matkul.nama }}</td>
     </ng-container>
-    <ng-container matColumnDef="realName">
-      <th mat-header-cell *matHeaderCellDef>Real Name</th>
-      <td mat-cell *matCellDef="let hero">{{ hero.realName }}</td>
+    <ng-container matColumnDef="ruang">
+      <th mat-header-cell *matHeaderCellDef>Ruangan</th>
+      <td mat-cell *matCellDef="let matkul">{{ matkul.ruang }}</td>
     </ng-container>
-    <ng-container matColumnDef="skill">
-      <th mat-header-cell *matHeaderCellDef>Skill</th>
-      <td mat-cell *matCellDef="let hero">{{ hero.skill }}</td>
+    <ng-container matColumnDef="dosen">
+      <th mat-header-cell *matHeaderCellDef>Dosen Pengajar</th>
+      <td mat-cell *matCellDef="let matkul">{{ matkul.dosen }}</td>
     </ng-container>
-    <ng-container matColumnDef="universe">
-      <th mat-header-cell *matHeaderCellDef>Universe</th>
-      <td mat-cell *matCellDef="let hero">{{ hero.universe }}</td>
+    <ng-container matColumnDef="jumlahSks">
+      <th mat-header-cell *matHeaderCellDef>Jumlah SKS</th>
+      <td mat-cell *matCellDef="let matkul">{{ matkul.jumlahSks }}</td>
+    </ng-container>
+    <ng-container matColumnDef="semester">
+      <th mat-header-cell *matHeaderCellDef>Semester</th>
+      <td mat-cell *matCellDef="let matkul">{{ matkul.semester }}</td>
+    </ng-container>
+    <ng-container matColumnDef="tahunAkademik">
+      <th mat-header-cell *matHeaderCellDef>Tahun Akademik</th>
+      <td mat-cell *matCellDef="let matkul">{{ matkul.tahunAkademik }}</td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr
       mat-row
       *matRowDef="let row; columns: displayedColumns"
-      [routerLink]="'/hero/' + row._id"
+      [routerLink]="'/matkul/' + row._id"
     ></tr>
   </table>
 </div>
