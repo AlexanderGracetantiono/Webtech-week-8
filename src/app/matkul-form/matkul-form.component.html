@@ -1,15 +1,22 @@
-<div *ngIf="error">Mata Kuliah dengan ID {{ this.id }} tidak tersedia</div>
+<!-- <div *ngIf="error">Mata Kuliah dengan ID {{ this.id }} tidak tersedia</div> -->
 
-<form>
+<form [formGroup]="matkulForm">
   <h1>Form Mata Kuliah</h1>
   <mat-form-field appearance="outline">
     <mat-label>Nama Matakuliah</mat-label>
-    <input matInput placeholder="tulis nama matkul" name="nama" id="nama" [(ngModel)]="matkul.nama" />
+    <input 
+    formControlName="nama"
+    matInput 
+    placeholder="tulis nama matkul" name="nama" id="nama" [(ngModel)]="matkul.nama" />
   </mat-form-field>
   <br />
   <mat-form-field>
     <mat-label>Jumlah SKS</mat-label>
-    <mat-select matNativeControl name="jumlahSks" id="jumlahSks" [(ngModel)]="matkul.jumlahSks">
+    <mat-select 
+    formControlName="jumlahSks"
+    matNativeControl 
+    name="jumlahSks" id="jumlahSks" 
+    [(ngModel)]="matkul.jumlahSks">
       <mat-option value="1">1 SKS
       </mat-option>
       <mat-option value="2">2 SKS
@@ -21,7 +28,12 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Semester</mat-label>
-    <mat-select matNativeControl name="semester" id="semester" [(ngModel)]="matkul.semester">
+    <mat-select 
+    formControlName="semester"
+    matNativeControl 
+    name="semester" 
+    id="semester" 
+    [(ngModel)]="matkul.semester">
       <mat-option value="Ganjil">Semester Ganjil
       </mat-option>
       <mat-option value="Genap">Semester Genap
@@ -31,7 +43,12 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Tahun Akademik</mat-label>
-    <mat-select matNativeControl name="tahunAkademik" id="tahunAkademik" [(ngModel)]="matkul.tahunAkademik">
+    <mat-select 
+    formControlName="tahunAkademik"
+    matNativeControl 
+    name="tahunAkademik" 
+    id="tahunAkademik" 
+    [(ngModel)]="matkul.tahunAkademik">
       <mat-option value="2018/2019">2018/2019
       </mat-option>
       <mat-option value="2020/2021">2020/2021
@@ -43,7 +60,10 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Ruangan</mat-label>
-    <mat-select matNativeControl name="ruang" id="ruang" [(ngModel)]="matkul.ruang">
+    <mat-select 
+    formControlName="ruang"
+    matNativeControl name="ruang"
+     id="ruang" [(ngModel)]="matkul.ruang">
       <mat-option value="2.B">2.B
       </mat-option>
       <mat-option value="1.A">1.A
@@ -53,18 +73,22 @@
 
     </mat-select>
   </mat-form-field>
+  <!-- <div *ngFor="let dosen of dosens">
+   {{ dosen.nama}}
+  </div> -->
   <mat-form-field>
     <mat-label>Dosen Pengajar</mat-label>
-    <mat-select  matNativeControl name="dosen" id="dosen" [(ngModel)]="matkul.dosen">
-      <!-- <mat-option  
-      *ngFor="let dosen of dosenList"
+    <mat-select  
+    formControlName="dosen"
+    matNativeControl 
+    name="dosen" 
+    id="dosen" 
+    [(ngModel)]="matkul.dosen">
+      <mat-option  
+      *ngFor="let dosen of dosens"
        value="{{ dosen.nama }}">{{ dosen.nama}}
-      </mat-option> -->
-      <mat-option value="Andy Irawan S.Kom">Andy Irawan S.Kom
       </mat-option>
-      <mat-option value="Djoko Susanto S.Kom">Djoko Susanto S.Kom
-      </mat-option>
-
+      <mat-option value="">Tidak ada</mat-option>
     </mat-select>
   </mat-form-field>
   <div class="buttons">
@@ -72,12 +96,14 @@
       <button mat-raised-button color="warn" (click)="deleteMatkul()">
         delete
       </button>
-      <button mat-raised-button color="primary" (click)="updateMatkul()">
+      <button  [disabled]="matkulForm.invalid"
+      mat-raised-button color="primary" (click)="updateMatkul()">
         update
       </button>
     </div>
     <div *ngIf="!update">
-      <button mat-raised-button (click)="postMatkul()" color="primary">
+      <button  [disabled]="matkulForm.invalid"
+      mat-raised-button (click)="postMatkul()" color="primary">
         Simpan
       </button>
     </div>

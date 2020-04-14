@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-  baseUrl = 'https://crudcrud.com/api/11fbff81014b4919a567470614e96964'; // berbeda untuk setiap mahasiswa
+  baseUrl = 'https://crudcrud.com/api/8b222826e9d94a7daaa694c84ac1132e'; // berbeda untuk setiap mahasiswa
 
   constructor(private http: HttpClient) { }
 
@@ -25,14 +25,11 @@ export class DataService {
     return this.http.post(`${this.baseUrl}/matakuliah`, matakuliah);
   }
   
-  updateMatkul(matakuliah: Matakuliah) {
-    const id = matakuliah._id; // we copy the original id
-    delete matakuliah._id; // we delete the original id so the server doesn't reply with error message
+  updateMatkul(id:string,matakuliah: Matakuliah) {
     return this.http.put(`${this.baseUrl}/matakuliah/${id}`, matakuliah);
   }
   
-  deleteMatkul(matakuliah: Matakuliah) {
-    const id = matakuliah._id; // we copy the original id
+  deleteMatkul(id:string) {
     return this.http.delete(`${this.baseUrl}/matakuliah/${id}`);
   }
   createDosen(dosen: Dosen) {
@@ -48,14 +45,11 @@ export class DataService {
     return this.http.get(`${this.baseUrl}/dosen/${id}`);
   }
 
-  updateDosen(dosen: Dosen) {
-    const id = dosen._id; // we copy the original id
-    delete dosen._id; // we delete the original id so the server doesn't reply with error message
+  updateDosen(id:string,dosen: Dosen) {
     return this.http.put(`${this.baseUrl}/dosen/${id}`, dosen);
   }
   
-  deleteDosen(dosen: Dosen) {
-    const id = dosen._id; // we copy the original id
+  deleteDosen(id:string) {
     return this.http.delete(`${this.baseUrl}/dosen/${id}`);
   }
 }
