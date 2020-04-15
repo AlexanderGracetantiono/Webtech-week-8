@@ -35,7 +35,7 @@ export class DosenFormComponent implements OnInit {
     lulusan1: ["", [Validators.required]],
     lulusan2: ["", [Validators.required]],
     lulusan3: ["", [Validators.required]],
-    jumlahSKSAJar: ["", [Validators.required]],
+//     jumlahSKSAJar: ["", [Validators.required]],
   })
   name = this.dosenForm.get("nama");
   lulusan1 = this.dosenForm.get("lulusan1");
